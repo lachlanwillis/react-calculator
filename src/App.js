@@ -12,7 +12,6 @@ class App extends Component {
 		this.state = {
 			input: '',
 			previousNumber: '',
-			currentNumber: '',
 			operator: ''
 		};
 	}
@@ -40,66 +39,72 @@ class App extends Component {
 	};
 
 	add = () => {
+		if (this.state.previousNumber === '') {
+			this.setState({ previousNumber: this.state.input });
+		}
 		this.setState({
-			previousNumber: this.state.input,
 			input: '',
 			operator: 'add'
 		});
 	};
 
 	subtract = () => {
+		if (this.state.previousNumber === '') {
+			this.setState({ previousNumber: this.state.input });
+		}
 		this.setState({
-			previousNumber: this.state.input,
 			input: '',
 			operator: 'subtract'
 		});
 	};
 
 	divide = () => {
+		if (this.state.previousNumber === '') {
+			this.setState({ previousNumber: this.state.input });
+		}
 		this.setState({
-			previousNumber: this.state.input,
 			input: '',
 			operator: 'divide'
 		});
 	};
 
 	multiply = () => {
+		if (this.state.previousNumber === '') {
+			this.setState({ previousNumber: this.state.input });
+		}
 		this.setState({
-			previousNumber: this.state.input,
 			input: '',
 			operator: 'multiply'
 		});
 	};
 
 	evaluate = () => {
-		this.setState({ currentNumber: this.state.input });
-
 		if (this.state.operator === 'add') {
 			this.setState({
 				input: math.add(
 					parseFloat(this.state.previousNumber),
-					parseFloat(this.state.currentNumber)
+					parseFloat(this.state.input)
 				)
 			});
 		} else if (this.state.operator === 'subtract') {
 			this.setState({
 				input: math.subtract(
 					parseFloat(this.state.previousNumber),
-					parseFloat(this.state.currentNumber)
+					parseFloat(this.state.input)
 				)
 			});
 		} else if (this.state.operator === 'divide') {
 			this.setState({
 				input: math.divide(
 					parseFloat(this.state.previousNumber),
-					parseFloat(this.state.currentNumber)
+					parseFloat(this.state.input)
 				)
 			});
 		} else if (this.state.operator === 'multiply') {
 			this.setState({
 				input: math.multiply(
 					parseFloat(this.state.previousNumber),
-					parseFloat(this.state.currentNumber)
+					parseFloat(this.state.input)
 				)
 			});
 		}

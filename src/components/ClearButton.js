@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ClearButton.css';
+import './ClearButton.scss';
 
 class ClearButton extends Component {
 	render() {
