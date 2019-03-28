@@ -4,7 +4,6 @@ import Button from './components/Button';
 import Input from './components/Input';
 import ClearButton from './components/ClearButton';
 import './App.css';
-import { throws } from 'assert';
 
 class App extends Component {
 	constructor(props) {
@@ -41,54 +40,62 @@ class App extends Component {
 	};
 
 	add = () => {
-		this.state.previousNumber = this.state.input;
-		this.setState({ input: '' });
-		this.state.operator = 'add';
+		this.setState({
+			previousNumber: this.state.input,
+			input: '',
+			operator: 'add'
+		});
 	};
 
 	subtract = () => {
-		this.state.previousNumber = this.state.input;
-		this.setState({ input: '' });
-		this.state.operator = 'subtract';
+		this.setState({
+			previousNumber: this.state.input,
+			input: '',
+			operator: 'subtract'
+		});
 	};
 
 	divide = () => {
-		this.state.previousNumber = this.state.input;
-		this.setState({ input: '' });
-		this.state.operator = 'divide';
+		this.setState({
+			previousNumber: this.state.input,
+			input: '',
+			operator: 'divide'
+		});
 	};
 
 	multiply = () => {
-		this.state.previousNumber = this.state.input;
-		this.setState({ input: '' });
-		this.state.operator = 'multiply';
+		this.setState({
+			previousNumber: this.state.input,
+			input: '',
+			operator: 'multiply'
+		});
 	};
 
 	evaluate = () => {
-		this.state.currentNumber = this.state.input;
+		this.setState({ currentNumber: this.state.input });
 
-		if (this.state.operator == 'add') {
+		if (this.state.operator === 'add') {
 			this.setState({
 				input: math.add(
 					parseFloat(this.state.previousNumber),
 					parseFloat(this.state.currentNumber)
 				)
 			});
-		} else if (this.state.operator == 'subtract') {
+		} else if (this.state.operator === 'subtract') {
 			this.setState({
 				input: math.subtract(
 					parseFloat(this.state.previousNumber),
 					parseFloat(this.state.currentNumber)
 				)
 			});
-		} else if (this.state.operator == 'divide') {
+		} else if (this.state.operator === 'divide') {
 			this.setState({
 				input: math.divide(
 					parseFloat(this.state.previousNumber),
 					parseFloat(this.state.currentNumber)
 				)
 			});
-		} else if (this.state.operator == 'multiply') {
+		} else if (this.state.operator === 'multiply') {
 			this.setState({
 				input: math.multiply(
 					parseFloat(this.state.previousNumber),
@@ -101,6 +108,10 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<h1 className="header">React Calculator App</h1>
+				<a href="https://github.com/lachlanwillis/react-calculator">
+					View more on GitHub
+				</a>
 				<div className="calc-wrapper">
 					<div className="row">
 						<Input>{this.state.input}</Input>

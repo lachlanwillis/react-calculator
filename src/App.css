@@ -4,15 +4,20 @@
 	align-items: center;
 	height: 100%;
 	width: 100%;
-	margin-top: 100px;
+	flex-direction: column;
 }
 
 .calc-wrapper {
 	width: 400px;
 	height: 600px;
+	margin-top: 50px;
 }
 
 .row {
 	display: flex;
 	width: 100%;
+}
+
+.header {
+	margin-bottom: 10px;
 }
